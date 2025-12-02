@@ -17,7 +17,7 @@ Para executar o sistema, basta rodar o arquivo sys.py e utilizar as opções num
 3. Herança aplicada no código
 
 A classe EntidadeAcademica define o básico que é comum a campus e curso:
-```
+```py
 # entidade.py
 class EntidadeAcademica:
     def __init__(self, codigo, nome):
@@ -34,7 +34,7 @@ class EntidadeAcademica:
 
 O Curso herda de EntidadeAcademica e adiciona o atributo tipo:
 
-```
+```py
 # curso.py
 from entidade import EntidadeAcademica
 
@@ -54,7 +54,7 @@ class Curso(EntidadeAcademica):
 
 O Campus também herda de EntidadeAcademica, adiciona cidade e a lista de cursos, e oferece o CRUD de cursos:
 
-```
+```py
 # campus.py
 from entidade import EntidadeAcademica
 from curso import Curso
