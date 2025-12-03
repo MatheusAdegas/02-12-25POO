@@ -3,16 +3,21 @@ from curso import Curso
 
 class Campus(EntidadeAcademica):
     def __init__(self, codigo, nome, cidade):
-        super().__init__(codigo, nome)  # inicializa codigo e nome na classe base
+        super().__init__(codigo, nome)
         self.cidade = cidade
         self.cursos = []  # lista de objetos Curso
 
     # ----- CRUD de CURSOS (dentro do campus) -----
 
     def adicionar_curso(self, curso):
+        if not isinstance(curso, Curso):
+            raise TypeError("Só é possível adicionar instâncias de Curso ao campus.")
         self.cursos.append(curso)
 
     def buscar_curso(self, codigo):
+        # opcional: garantir que o código seja string
+        if not isinstance(codigo, str):
+            raise TypeError("O código de curso deve ser uma string (ex: 'SI', 'MED').")
         for curso in self.cursos:
             if curso.codigo == codigo:
                 return curso
@@ -29,9 +34,7 @@ class Campus(EntidadeAcademica):
         return self.cursos
 
     def atualizar(self, novo_nome=None, nova_cidade=None):
-        # reaproveita atualização de nome da classe base
         super().atualizar(novo_nome)
-
         if nova_cidade:
             self.cidade = nova_cidade
 
