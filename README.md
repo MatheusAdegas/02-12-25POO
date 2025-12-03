@@ -14,7 +14,7 @@ projeto_ufc/
 
 Para executar o sistema, basta rodar o arquivo sys.py e utilizar as opções numéricas exibidas no menu para cadastrar, listar, atualizar e remover campi, além de gerenciar os cursos de cada campus.
 
-3. Herança aplicada no código
+# 3. Herança aplicada no código
 
 A classe EntidadeAcademica define o básico que é comum a campus e curso:
 ```py
@@ -94,3 +94,8 @@ class Campus(EntidadeAcademica):
 ```
 
 O restante do sistema (menus em sys.py e gerenciamento de campi em universidade.py) continua funcionando como antes, apenas passando a usar os métodos atualizar herdados para modificar campus e cursos de forma mais reaproveitável.
+
+# 4 Changelog de mudanças
+- Agora, Campus só pode receber Curso de adicionar_curso
+- Agora, UFC só pode receber Campus de adicionar_campus
+- Agora, código e nome em entidade.py são de um tipo determinado
