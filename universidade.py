@@ -5,9 +5,14 @@ class UFC:
         self.campi = []  # lista de objetos Campus
         
     def adicionar_campus(self, campus):
+        if not isinstance(campus, Campus):
+            raise TypeError("Só é possível adicionar instâncias de Campus à UFC.")
         self.campi.append(campus)
 
     def buscar_campus(self, codigo):
+        # aqui você espera um int
+        if not isinstance(codigo, int):
+            raise TypeError("O código do campus deve ser um número inteiro.")
         for campus in self.campi:
             if campus.codigo == codigo:
                 return campus
